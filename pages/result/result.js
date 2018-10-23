@@ -8,6 +8,7 @@ Page({
     countA: 0,
     countC: 0,
     countB: 0,
+    countScore:0,
     kind: '',
     time: '00:00:00',
     //弹出的选择按钮
@@ -47,25 +48,48 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
     this.setData({
       countA: options.A - 0,
       countC: options.C - 0,
       countB: options.B - 0,
+      countScore:options.score -0,
       time:options.time
     })
-    /*
-    this.data.countA = getApp().globalData.countA;
-    this.data.countB = getApp().globalData.countB;
-    this.data.countC = getApp().globalData.countC;
-    */
     var data = this.data;
   },
+  saveImg: function () {
+    wx.getImageInfo({
+      src: '../../image/qz_share.png',
+      success: function (res) {
+        console.log(res.path)
+          wx.saveImageToPhotosAlbum({
+            filePath: res.path,
+            success(res) {
+              console.log(res)
+            }
+          })
+      }
+    })
+  },
+  onShareAppMessage: function (ops) {
+    if (ops.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(ops.target)
+    }
+    return {
+      title: '10.24，关爱程序员，关爱健康',
+      path: '/pages/begin/begin',
+      imageUrl: '/image/ga_share.jpg',
+      success: function (res) {
+        // 转发成功
+        console.log("转发成功:" + JSON.stringify(res));
+        var shareTickets = res.shareTickets;
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log("转发失败:" + JSON.stringify(res));
 
-  /**
-   * Amax:听觉
-   * Kmax:动觉
-   * Vmax:视觉
-   * A=K>V:听觉动觉均衡型……
-   */
+      }
+    }
+  }
 })

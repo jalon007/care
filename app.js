@@ -12,6 +12,7 @@ App({
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
+
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -30,6 +31,16 @@ App({
             }
           })
         }
+
+        if (!res.authSetting['scope.writePhotosAlbum']) {
+          wx.authorize({
+            scope: 'scope.writePhotosAlbum',
+            success() {
+              console.log('授权成功')
+            }
+          })
+        }
+
       }
     })
   },

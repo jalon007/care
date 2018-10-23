@@ -1,4 +1,4 @@
-var postData = require("../../data/data.js");
+var postData = require("../../data/data-1024.js");
 var progressNum = 0;//进度条
 
 //计时器
@@ -54,9 +54,11 @@ Page({
     A: 0,
     C: 0,
     B: 0, 
+    score:0,
     index: 0,
     title: postData.describe,
     choice: postData.answer,
+    key: postData.key,
     radios: ['A', 'C', 'B'],
     list: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
     seconds: 0,
@@ -96,8 +98,22 @@ playmusic:function(){
 
   select: function (e) {
     var tmp = e.detail.value;
-    progressNum = progressNum + 10;
-    this.setData({per:progressNum})
+    progressNum = this.data.per + 10;
+
+    this.setData({
+      per:progressNum
+      })
+    console.log(this.data.index);
+    console.log(this.data.list[this.data.index]);
+    console.log(this.data.key[this.data.list[this.data.index]]);
+    console.log(tmp);
+    var yes = this.data.key[this.data.list[this.data.index]];
+    if(tmp==yes){
+      console.log("正确答案");
+      this.setData({
+        score: this.data.score + 10,
+      });
+    }
     if (tmp == 'A') {
       this.setData({
         A: this.data.A + 1
@@ -125,7 +141,7 @@ playmusic:function(){
 
   submit: function () {
     wx.redirectTo({
-      url: '/pages/result/result?A=' + this.data.A + '&C=' + this.data.C + '&B=' + this.data.B+'&time='+this.data.time,
+      url: '/pages/result/result?score=' + this.data.score + '&A=' + this.data.A + '&C=' + this.data.C + '&B=' + this.data.B+'&time='+this.data.time,
     })
     
     /*
@@ -148,5 +164,26 @@ playmusic:function(){
       B: 0
     });
   }
+  ,
+  onShareAppMessage: function (ops) {
+    if (ops.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(ops.target)
+    }
+    return {
+      title: '10.24，关爱程序员，关爱健康',
+      path: '/pages/begin/begin',
+      imageUrl: '/image/ga_share.jpg',
+      success: function (res) {
+        // 转发成功
+        console.log("转发成功:" + JSON.stringify(res));
+        var shareTickets = res.shareTickets;
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log("转发失败:" + JSON.stringify(res));
 
+      }
+    }
+  }
 })

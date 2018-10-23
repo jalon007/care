@@ -1,7 +1,4 @@
-<view class="warp" style="background-image: url('../image/img0.jpg')">
-
-
- 
+<view class="warp" style="background-image: url('../image/2.png');background-repeat: no-repeat;background-size: 100% 100%;-moz-background-size: 100% 100%;">
 
   <scroll-view class="scroll1">
     <view class="text1">小测试</view>

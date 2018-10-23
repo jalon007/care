@@ -13,8 +13,15 @@ Page({
     wx.navigateTo({
       url: '../logs/logs'
     })
-  },
-  onLoad: function () {
+  }, 
+  bindGetUserInfo: function (e) {
+    var that = this;   //此处授权得到userInfo   
+    console.log(e.detail.userInfo);   
+    //接下来写业务代码   //最后，记得返回刚才的页面   
+    wx.navigateBack({   delta: 1   
+    })  
+    },
+    onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -53,7 +60,29 @@ Page({
   
   beginttest: function(){
     wx.redirectTo({
-      url: '/pages/test/test'
+      url: '/pages/care/care'
+      //url: '/pages/index/index'
     })
+  },
+  onShareAppMessage: function (ops) {
+    if (ops.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(ops.target)
+    }
+    return {
+      title: '10.24，关爱程序员，关爱健康',
+      path: '/pages/begin/begin',
+      imageUrl: '/image/ga_share.png',
+      success: function (res) {
+        // 转发成功
+        console.log("转发成功:" + JSON.stringify(res));
+        var shareTickets = res.shareTickets;
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log("转发失败:" + JSON.stringify(res));
+
+      }
+    }
   }
 })

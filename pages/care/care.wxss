@@ -8,6 +8,9 @@
 .warp{
   height: 100%;
   width: 100%; 
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
 }
 /* pages/question/question.wxss */
 page{
@@ -19,12 +22,13 @@ page{
 
 .outer{
   height: 100%;
-
+  padding-top:10px;
 }
 
 #describe{
   margin: 1rem;
   color: black;
+  color: #fff;
 }
 
 #answer{
@@ -73,7 +77,13 @@ radio .wx-radio-input.wx-radio-input-checked::before{
 #confirm:active{
   background: lightblue
 }
-
+progress{
+  color:rgba(67, 82, 163, 0.9);
+padding-left:30px;
+padding-right:10px;
+padding-top: 35px;
+font-weight: bold;
+}
 
 
 

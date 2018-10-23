@@ -45,8 +45,30 @@ var answers=[
     { 'C': '必须清清楚楚地看见说话的人，才能听得清楚', 'A': '你闭上眼睛，不看说话的人，听得更清楚', 'B': '你边走边听别人讲' },
     { 'C': '别人的相貌，才能听得清楚', 'A': '别人说过的话', 'B': '别人做过的事' }
   ]
-
+var key = [
+  'A',
+  'B',
+  'C',
+  'C',
+  'B',
+  'A',
+  'B',
+  'B',
+  'C',
+  'A',
+  'B',
+  'A',
+  'B',
+  'A',
+  'A',
+  'A',
+  'C',
+  'C',
+  'C',
+  'B'
+]
 module.exports = {
   describe: describes,
-   answer:answers
+   answer:answers,
+   key:key
 }
