@@ -77,7 +77,7 @@ Page({
       console.log(ops.target)
     }
     return {
-      title: '10.24，关爱程序员，关爱健康',
+      title: '10.24|让更多人关爱程序员，关爱健康',
       path: '/pages/begin/begin',
       imageUrl: '/image/ga_share.jpg',
       success: function (res) {

@@ -2,7 +2,7 @@
   "pages":[
     "pages/begin/begin",
     "pages/care/care",
-   "pages/result/result",
+    "pages/result/result",
     "pages/logs/logs"
   ],
   "window":{

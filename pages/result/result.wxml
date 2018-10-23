@@ -4,5 +4,7 @@
 </view>
 <view class="container" style="background-image: url('https://i.loli.net/2018/10/22/5bcdc3c2246e1.jpg')">
    <view><text class="texts">{{countScore}}</text></view>
-  <view class="share" bindtap="saveImg"> <image src='/image/share.png'></image></view>
+  <view class="loadshare" bindtap="saveImg"> <image src='/image/share.png'></image></view>
+  <image class='share-img' src='/image/share_care.png'/>    
+<button class='share-img-button' open-type="share" hover-class="none"></button>
 </view>
