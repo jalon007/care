@@ -30,5 +30,5 @@
       </radio-group>
     </view>
   </view>
-
+  <view > <navigator target = "miniProgram" app-id="wx1b70af3d7ab8e4f7" path="pages/salary/rate" open-type='navigate'><image src='/image/rate_guanggao.png' class="share"></image></navigator></view>
 </view>
