@@ -72,7 +72,7 @@ Page({
     return {
       title: '10.24，关爱程序员，关爱健康',
       path: '/pages/begin/begin',
-      imageUrl: '/image/ga_share.png',
+      imageUrl: '/image/ga_share.jpg',
       success: function (res) {
         // 转发成功
         console.log("转发成功:" + JSON.stringify(res));
